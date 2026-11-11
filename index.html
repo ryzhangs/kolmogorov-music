@@ -6,93 +6,9 @@
 <title>Kolmogorov Complexity and Music</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@333f55ec19733c28cdc43567ecf72eafd6b0af61/font/Serif/cmun-serif.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@333f55ec19733c28cdc43567ecf72eafd6b0af61/font/Typewriter/cmun-typewriter.css">
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    }
-  };
-</script>
+<link rel="stylesheet" href="style.css">
+<script src="math.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" defer></script>
-<style>
-  :root {
-    --paper: #d6e4d9;
-    --ink: #333333;
-    --muted: #5f9771;
-    --rule: #a9bf98;
-    --accent: #2f5a32;
-    --strip: #d6d8b6;
-    color-scheme: light;
-  }
-  * { box-sizing: border-box; }
-  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
-  body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: "Computer Modern Serif", "Latin Modern Roman", Georgia, serif;
-    font-size: 1.15rem;
-    line-height: 1.6;
-    padding: env(safe-area-inset-top, 0px) 1.25rem env(safe-area-inset-bottom, 0px);
-  }
-  main { max-width: 42rem; margin: 0 auto; padding: 4rem 0 5rem; }
-  h1 {
-    font-weight: bold;
-    font-size: clamp(2.2rem, 6vw, 3.4rem);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 0 0 0.75rem;
-  }
-  .byline { color: var(--muted); margin: 0 0 2.5rem; }
-
-  .strings {
-    font-family: "Computer Modern Typewriter", ui-monospace, Menlo, Consolas, monospace;
-    font-size: 0.82rem;
-    background: var(--strip);
-    border-left: 3px solid var(--accent);
-    padding: 1rem 1.1rem;
-    overflow-x: auto;
-    margin: 0 0 1rem;
-  }
-  .strings div { white-space: nowrap; }
-  .strings .desc { color: var(--muted); margin: 0.15rem 0 0.9rem; }
-  .strings .desc:last-child { margin-bottom: 0; }
-  .lede { margin: 0 0 3rem; }
-
-  h2 {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin: 0 0 1.25rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--rule);
-  }
-  ol.outline { list-style: none; counter-reset: sec; padding: 0; margin: 0; }
-  ol.outline > li {
-    counter-increment: sec;
-    position: relative;
-    padding-left: 2.6rem;
-    margin-bottom: 1.75rem;
-  }
-  ol.outline > li::before {
-    content: counter(sec);
-    position: absolute;
-    left: 0;
-    top: 0.05rem;
-    font-size: 1.6rem;
-    line-height: 1;
-    color: var(--accent);
-    font-style: italic;
-  }
-  ol.outline h3 { font-size: 1.2rem; font-weight: bold; margin: 0 0 0.3rem; }
-  ol.outline p { margin: 0 0 0.6rem; }
-  ol.outline p:last-child { margin-bottom: 0; }
-  .note { color: var(--muted); font-style: italic; font-weight: 400; font-size: 1rem; }
-  .math-block { overflow-x: auto; }
-  a { color: var(--accent); }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  footer { color: var(--muted); font-size: 0.95rem; margin-top: 3rem; }
-</style>
 </head>
 <body>
 <main>
@@ -114,43 +30,45 @@
   <h2>Outline</h2>
   <ol class="outline">
     <li>
-      <h3>Introduction to Kolmogorov complexity</h3>
+      <h3><a href="01-introduction.html">Introduction to Kolmogorov complexity</a></h3>
       <p>Opens with two binary strings of the same length, one patterned ($0101\ldots01$) and one random-looking, alongside two short melodies: a repeated scale and an unpredictable line. Asks which is simpler to describe. Gives the formal definition $K_U(x) = \min\{|p| : U(p) = x\}$ for a fixed universal Turing machine $U$. Covers the bounds $K(x) \le |x| + c$ and $K(0^n) \le \log n + c$, and shows how structure in a string turns into a short program.</p>
     </li>
     <li>
-      <h3>The invariance theorem <span class="note">(main theorem)</span></h3>
+      <h3><a href="02-invariance.html">The invariance theorem</a> <span class="note">(main theorem)</span></h3>
       <p>States and proves that for any two universal Turing machines $U$ and $V$, there is a constant $c$ such that $|K_U(x) - K_V(x)| \le c$ for every string $x$. Explains why this means Kolmogorov complexity measures the string itself rather than the choice of programming language.</p>
     </li>
     <li>
-      <h3>Incompressible strings</h3>
+      <h3><a href="03-incompressible.html">Incompressible strings</a></h3>
       <p>Uses a counting argument to show that for every $n$, at least one string of length $n$ has $K(x) \ge n$, and that most strings are nearly incompressible. This gives a definition of what it means for a single string to be random.</p>
     </li>
     <li>
-      <h3>Uncomputability and the halting problem</h3>
+      <h3><a href="04-uncomputability.html">Uncomputability and the halting problem</a></h3>
       <p>Proves that $K$ is not computable, using a Berry-paradox argument and a connection to the halting problem. Also explains that $K$ can be approximated from above, but we can never know when the approximation has reached the true value.</p>
     </li>
     <li>
-      <h3>Chaitin’s incompleteness theorem</h3>
+      <h3><a href="05-chaitin.html">Chaitin’s incompleteness theorem</a></h3>
       <p>Shows that any consistent, sound formal system with a computable set of axioms can prove statements of the form $K(x) &gt; L$ for only finitely many strings $x$, even though almost all strings satisfy them. Includes the proof and its relationship to Gödel’s incompleteness theorem.</p>
     </li>
     <li>
-      <h3>From theory to practice: compression distance</h3>
+      <h3><a href="06-compression-distance.html">From theory to practice: compression distance</a></h3>
       <p>Introduces information distance and the normalized compression distance</p>
       <div class="math-block">$$\mathrm{NCD}(x, y) = \frac{C(xy) - \min\{C(x), C(y)\}}{\max\{C(x), C(y)\}}$$</div>
       <p>where $C$ is the output length of a real compressor such as gzip or bzip2, used in place of the uncomputable $K$. Discusses what is lost in this approximation and why it still works well in practice.</p>
     </li>
     <li>
-      <h3>Application: clustering music <span class="note">(Cilibrasi, Vitányi, de Wolf)</span></h3>
+      <h3><a href="07-clustering.html">Application: clustering music</a> <span class="note">(Cilibrasi, Vitányi, de Wolf)</span></h3>
       <p>Unsupervised setting: compute pairwise NCD between MIDI files using bzip2, then build a tree with the quartet method. Walks through how pieces group by genre (rock, jazz, classical) and by composer without any built-in musical knowledge. Covers limitations: dependence on file encoding, the compressor’s limited view of musical structure, and the difficulty of evaluating tree quality.</p>
     </li>
     <li>
-      <h3>Application: classifying melodies <span class="note">(Li and Sleep)</span></h3>
+      <h3><a href="08-classifying.html">Application: classifying melodies</a> <span class="note">(Li and Sleep)</span></h3>
       <p>Supervised setting: assign melodies to one of four classes with a 1-nearest-neighbour classifier, using NID estimated by LZ phrase counts. Discusses the representation choice: absolute pitch contours versus interval contours, and why intervals did better.</p>
       <p>Worked example: encode a short melody and its transposition as interval sequences ($+2, +2, +1, \ldots$), show the two sequences are identical, and compute that their distance is near zero while the absolute-pitch versions look different. Closes by comparing the two papers: clustering versus classification, off-the-shelf compressor versus LZ estimator, and raw MIDI versus extracted melody.</p>
     </li>
     <li>
-      <h3>References</h3>
+      <h3><a href="references.html">References</a></h3>
       <p>Textbooks, lecture notes, and papers used to build this site.</p>
+      <a href="https://users.cs.duke.edu/~reif/courses/complectures/Li/KC-Lecture1.pdf">https://users.cs.duke.edu/~reif/courses/complectures/Li/KC-Lecture1.pdf</a>
+      <a href="https://people.eecs.berkeley.edu/~venkatg/teaching/15252-sp21/notes/Kolmogorov-Complexity.pdf">hhttps://people.eecs.berkeley.edu/~venkatg/teaching/15252-sp21/notes/Kolmogorov-Complexity.pdf</a></p>
     </li>
   </ol>
 

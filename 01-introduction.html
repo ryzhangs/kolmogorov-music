@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Introduction to Kolmogorov complexity · Kolmogorov Complexity and Music</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@333f55ec19733c28cdc43567ecf72eafd6b0af61/font/Serif/cmun-serif.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/aaaakshat/cm-web-fonts@333f55ec19733c28cdc43567ecf72eafd6b0af61/font/Typewriter/cmun-typewriter.css">
+<link rel="stylesheet" href="style.css">
+<script src="math.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js" defer></script>
+</head>
+<body>
+<main>
+  <p class="crumbs"><a href="index.html">← Kolmogorov Complexity and Music</a></p>
+  <p class="kicker">Section 1 of 8</p>
+  <h1>Introduction to Kolmogorov complexity</h1>
+  <p class="byline">Opens with two binary strings of the same length, one patterned ($0101\ldots01$) and one random-looking, alongside two short melodies: a repeated scale and an unpredictable line. Asks which is simpler to describe. Gives the formal definition $K_U(x) = \min\{|p| : U(p) = x\}$ for a fixed universal Turing machine $U$. Covers the bounds $K(x) \le |x| + c$ and $K(0^n) \le \log n + c$, and shows how structure in a string turns into a short program.</p>
+
+  <article>
+    <!-- ===== WRITE THIS SECTION BELOW ===== -->
+
+    <h2>Which is simpler?</h2>
+    <p>Intuitively we know that $11111$ is simpler (can be represented as $1^5$) to encode than a random string of bits such as $10010$.
+        What we will explore later on is how this can be translated in terms of music. Music like most things can be encoded as information with bits/numbers. A complex jazz fusion arrangement will have constantly changing chords and unpredicatable jazz solos, while a song heard on the radio repeats a catchy melody many times, which one could intuitively believe to be more compressible.</p>
+
+    <h2>Formal definition</h2>
+    <p>We denote the Kolmogorov complexity as:
+        $$K_U(x) = \min\{|p| : U(p) = x \text{ for a fixed universal TM } U\}$$
+        One can reason that this defines the minimum length input any TM takes to output $x$ where the input represents in a sense, the compressed representation of $x$. </p>
+    <p>Recall an important property of Turing Machines is that they are encodable and thus countable. As such, we can enumerate all TMs:
+        $$\langle M_1, M_2, M_3, ...\rangle$$</p>
+    <p>Thus we can define the universal TM $U$:
+        $$U(0^n1) = M_n() = x$$
+        Essentially, $n$ is the $n$th TM in our enumeration, so the input to $U$ informs it what $M_n$ is, and $U$ simulates $M_n$ on the empty string $\epsilon$.
+    </p>
+
+    <h2>Simple upper bounds</h2>
+    <p class="todo">To write.</p>
+
+    <h2>Structure is a short program</h2>
+    <p class="todo">To write.</p>
+
+    <!-- ===== END OF SECTION ===== -->
+  </article>
+
+  <nav class="pager">
+    <a class="prev" href="index.html"><small>← Back</small>Outline</a>
+    <a class="next" href="02-invariance.html"><small>Next →</small>The invariance theorem</a>
+  </nav>
+</main>
+</body>
+</html>
